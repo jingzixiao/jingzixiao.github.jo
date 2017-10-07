@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        /*
+            arcTo(x1,y1,x2,y2,radius);
+        */
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        ctx.moveTo(100,50);
+        ctx.lineTo(100,150);
+        ctx.arcTo(100,200,150,200,50);
+        ctx.lineTo(400,200);
+        ctx.arcTo(450,200,450,150,50);
+        ctx.lineTo(450,50);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

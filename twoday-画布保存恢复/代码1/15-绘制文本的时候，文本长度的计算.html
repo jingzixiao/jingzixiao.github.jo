@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        var str='好走都是下坡路';
+
+        ctx.font='40px 微软雅黑';
+        //ctx.measureText(str).width  测量文本的宽度
+        console.log(ctx.measureText(str).width);
+        var w=ctx.measureText(str).width;//文字的宽度
+
+        ctx.moveTo(100,100);
+        ctx.lineTo(100+w,100);
+        ctx.stroke();
+
+
+        ctx.strokeText(str,100,90);
+
+    </script>
+</body>
+</html>

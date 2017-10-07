@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>画布保存恢复</title>
+  <style>
+    canvas{
+      border:1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<canvas width="700" height="800"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  
+  ctx.beginPath();
+  ctx.moveTo(100,50);
+  ctx.lineTo(500,50);
+  ctx.strokeStyle="cyan";
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.lineWidth=10;
+  ctx.moveTo(100,200);
+  ctx.lineTo(500,200);
+  ctx.stroke();
+  ctx.save();
+  
+  ctx.beginPath();
+  ctx.moveTo(100,300);
+  ctx.lineTo(500,300);
+  ctx.lineWidth=20;
+  ctx.strokeStyle="cyan";
+  ctx.stroke();
+  ctx.save();
+
+  
+  ctx.restore();
+  ctx.beginPath();
+  ctx.moveTo(100,400);
+  ctx.strokeStyle="red";
+  ctx.lineTo(500,400);
+  ctx.stroke();
+
+  ctx.restore();
+  ctx.beginPath();
+  ctx.moveTo(100,500);
+  ctx.lineTo(500,500);
+  ctx.stroke();
+
+
+
+
+</script>
+</body>
+</html>

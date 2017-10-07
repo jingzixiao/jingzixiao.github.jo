@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+        var gap=40;
+
+        for (var i = 0; i < cs.width/gap; i++) {
+            ctx.beginPath();
+            ctx.moveTo(i*gap,0);
+            ctx.lineTo(i*gap,cs.height);
+            ctx.stroke();//描边
+        }
+
+        for (var j = 0; j < cs.height/gap; j++) {
+            ctx.beginPath();
+            ctx.moveTo(0,j*gap);
+            ctx.lineTo(cs.width,j*gap);
+            ctx.stroke();//描边
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制矩形函数封装</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  
+  function rect(ctx,x,y,w,h,color,isFill){
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+w,y);
+    ctx.lineTo(x+w,y+h);
+    ctx.lineTo(x,y+h);
+    ctx.closePath();
+    
+    if(isFill){
+      ctx.fillStyle=color;
+      ctx.fill();
+    }else{
+      ctx.strokeStyle=color;
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  rect(ctx,100,100,200,100,"cyan");
+  rect(ctx,200,200,200,100,"cyan" ,true);
+  
+  ctx.beginPath();
+  ctx.moveTo(300,400);
+  ctx.lineTo(500,350);
+  ctx.stroke();
+ </script>
+</body>
+</html>

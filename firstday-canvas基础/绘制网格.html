@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="500" height="400" border="1px solid #ccc"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var gap=10;
+  var w=cs.width;
+  var h=cs.height;
+  for (var i = 1; i <=h/gap; i++) {
+    ctx.beginPath();
+    ctx.moveTo(0,gap*i);
+    ctx.lineTo(w,gap*i);
+    ctx.stroke();
+  }
+ for (var j = 1; j <=w/gap; j++) {
+   ctx.beginPath();
+   ctx.moveTo(gap*j,0);
+   ctx.lineTo(gap*j,h);
+   ctx.stroke();
+ }
+
+
+</script>
+
+</body>
+</html>

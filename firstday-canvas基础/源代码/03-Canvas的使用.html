@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+            /*width:600px;*/
+            /*height: 400px;*/
+        }
+    </style>
+</head>
+<body>
+<!--width="600" height="400"-->
+    <canvas width="600" height="400" ></canvas>
+    <!--4-canvas标签，只是一个标签而已，自身并不具备绘图的能力；如果需要进行绘制，需要使用canvas相关的API 来进行绘制；-->
+
+    <script>
+        //1-获取canvas标签
+        var cs=document.querySelector('canvas');
+
+        // 2-获取2d绘图的API(每个画布都有自己单独的API)
+        var ctx=cs.getContext('2d'); //工具箱
+//        console.log(ctx);
+
+        //3-绘制
+        //移动画笔  线的起点坐标
+        ctx.moveTo(100,100);
+        //画线  线的终点坐标
+//        ctx.lineTo(700,100);
+//
+//        ctx.lineTo(200,400);
+        //绘制 描边
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var cs=document.querySelector('canvas');
+        //获取绘图的API
+        var  ctx=cs.getContext('2d');
+
+        //绘制
+        ctx.moveTo(100,100); //移动画布
+        ctx.lineTo(300,100); //画线
+        ctx.lineTo(300,300);
+        ctx.lineTo(100,300);
+        ctx.lineTo(100,100);
+
+        ctx.stroke();//描边
+
+    </script>
+</body>
+</html>

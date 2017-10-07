@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <canvas width="900" height="400" style="border: 1px solid red;"></canvas>
+    <script src="Land.js"></script>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+//        console.log(ctx.canvas.height);  通过绘图的api，获取canvas的尺寸
+
+        var img=new Image();
+        img.src='../imgs/land.png';
+
+        img.onload=function(){
+            var land=new Land({
+                img:img,
+                ctx:ctx,
+                index:0
+            });
+
+            var land1=new Land({
+                img:img,
+                ctx:ctx,
+                index:1
+            });
+
+            var land2=new Land({
+                img:img,
+                ctx:ctx,
+                index:2
+            });
+
+            var land3=new Land({
+                img:img,
+                ctx:ctx,
+                index:3
+            });
+
+            setInterval(function(){
+                ctx.clearRect(0,0,cs.width,cs.height);
+                land.render();
+                land1.render();
+                land2.render();
+                land3.render();
+            },100)
+
+        }
+    </script>
+</body>
+</html>

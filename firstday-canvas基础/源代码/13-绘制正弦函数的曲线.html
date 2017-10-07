@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="700" height="400"></canvas>
+
+<script>
+    var cs=document.querySelector('canvas');
+    var ctx=cs.getContext('2d');//获取绘图的API
+
+    var x=0;
+    var y=0;
+    //y=Math.sin(x);  正弦曲线
+    //正弦曲线 最大值为1 最小值为-1 所以需要将y的值放大；
+    // 在画线时x不适合放大，所以在计算y值是将x缩小，是同样的效果
+
+    var t=setInterval(function(){
+        y=Math.sin(x/20);
+//        y=Math.abs(y);
+        ctx.lineTo(x,y*50+200); //设置线的终点
+        ctx.stroke();//描边
+
+        x++; //x自加
+        if(x>690){
+            clearInterval(t);
+        }
+
+    },10);
+
+
+
+
+</script>
+</body>
+</html>

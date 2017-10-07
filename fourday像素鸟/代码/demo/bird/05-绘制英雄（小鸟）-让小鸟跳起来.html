@@ -1,0 +1,85 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas width="600" height="700" style="border: 1px solid #000;"></canvas>
+
+<script>
+
+	/*
+	 Vt当前速度
+	 Vo 初始速度
+	 a:加速度
+	 t:时间差   计时的结束时间-计时的起始时间
+
+	 Vt=V0+at
+
+	 s=V0*t+1/2a*t*t //t时间段内移动距离
+	 */
+	var cs=document.querySelector('canvas');
+	var ctx=cs.getContext('2d');
+	var h=45;
+	var w=52;
+	var x=100;
+	var y=100;
+
+	var speed=0;//当前速度
+	var startTime=new Date();//起始时间 //时间戳
+	var endTime=0;//结束时间
+	var Dvalue=0;//时间差
+	var a=0.0005; //加速
+
+	var maxSpeed=0.5;//最大速度
+
+	var angles=0;//旋转的角度
+	var maxAngles=45;//最大角度
+
+
+
+	var bird=new Image();
+
+	bird.onload=function(){
+
+		var i=0;
+		var timer=setInterval(function(){
+			endTime=new Date();
+			Dvalue=endTime-startTime;//算出了时间差
+			startTime=endTime;//上一次结束事件是下一次开始计时的时间
+			//加速运动
+			speed=speed+a*Dvalue;//算出当前时刻的速 vt
+			if(speed>maxSpeed){
+				speed=maxSpeed;
+			}
+			y=y+speed*Dvalue+1/2*a*Dvalue*Dvalue;//小鸟当前移动的位置
+
+			//随着时间推移，鸟的速度越来越大，鸟的旋转角度越来越大
+			//推算出当前的角度 旋转角度和当前速度成正比
+			angles=speed/maxSpeed*maxAngles; //当前角度
+			console.log(angles);
+
+			ctx.clearRect(0,0,cs.width,cs.height);//清空画布
+			ctx.save();//保存画布状态
+			//将坐标原点放在鸟中心点
+			ctx.translate(x,y);
+			ctx.rotate(angles*Math.PI/180);
+			ctx.drawImage(bird,i*w,0,w,h,-w/2,-h/2,w,h);
+			ctx.restore(); //恢复画布状态
+			i++;
+			i=i%3; //0 1 2
+		},50);
+
+	}
+	window.onclick=function(){
+		//让鸟跳起来
+		speed=-0.3;
+	}
+
+
+
+	bird.src="imgs/birds.png";
+</script>
+</body>
+</html>

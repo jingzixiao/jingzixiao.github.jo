@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var cc=cs.getContext('2d');
+        /*
+        * ctx:绘图的上下文
+        * x ,y  矩形的左上角坐标点
+        * w，h  矩形的宽高
+        * isFill  是否填充，默认是描边
+        * */
+        function rect(ctx,x,y,w,h,color,isFill){
+            ctx.save();//保存画布之前的状态
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(x+w,y);
+            ctx.lineTo(x+w,y+h);
+            ctx.lineTo(x,y+h);
+            ctx.closePath();
+            if(isFill){
+                ctx.fillStyle=color;
+                ctx.fill();
+            }else{
+                ctx.strokeStyle=color;
+                ctx.stroke();
+            }
+            ctx.restore();//恢复到画矩形之前的状态
+        }
+
+        rect(cc,100,100,200,200,'red');
+        rect(cc,400,100,50,50,'blue',true);
+
+        cc.beginPath();
+        cc.moveTo(150,150);
+        cc.lineTo(300,300);
+        cc.stroke();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制6等分的圆</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var size=6;
+  //思路: 让圆在画布的中心
+  var x=cs.width/2;
+  var y=cs.height/2;
+  var r=150;
+  startAngle=0;
+  var angle=360/size; //每个的角度
+  
+  //for循环
+//  for (var i = 0; i <size; i++) {
+//    ctx.beginPath();
+//    ctx.moveTo(x,y);
+//    ctx.arc(x,y,r,getRadian(startAngle),getRadian(startAngle+angle));
+//    ctx.closePath();
+//    ctx.fillStyle=getColor();
+//    ctx.fill();
+//    ctx.stroke();
+//    startAngle=startAngle+angle;
+//
+//  }
+ 
+  //定时器
+  
+  var timer=setInterval(function(){
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.arc(x,y,r,getRadian(startAngle),getRadian(startAngle+angle));
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fillStyle=getColor();
+    ctx.fill();
+    startAngle=startAngle+angle;
+    if(startAngle>=360){
+      clearInterval(timer);
+    }
+    ctx.restore();
+  },100)
+  
+  
+  
+  
+  function getColor(){
+    return "rgba("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+",1)";
+  }
+  
+  function getRadian(value){
+    return value*Math.PI/180;
+  }
+ </script>
+</body>
+</html>

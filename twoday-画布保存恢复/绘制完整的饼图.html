@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制完整的饼图</title>
+</head>
+<body>
+<canvas width="600" height="500" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var x=cs.width/2;
+  var y=cs.height/2;
+  var sum=0;
+  var r=150;
+  var startAngle=-90;
+  var out=30;
+  var angles;
+  var data=[
+    {name:'前端',value:888},
+    {name:'JAVA',value:666},
+    {name:'Python',value:288},
+    {name:'UI设计',value:333},
+    {name:'PHP',value:543},
+    {name:'IOS',value:111}
+  ];
+  
+  //将数据生成角度值  先求总和
+  data.forEach(function(ele,index,data){
+    return sum+=ele.value;
+  })
+  
+  //求角度 返回新数组
+  angles=data.map(function(ele,index,data){
+    return ele.value*360/sum;
+  })
+  console.log(angles);
+  //for循环绘制一个圆
+  for (var i = 0; i < angles.length; i++) {
+    var color=getColor();
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.arc(x,y,r,getRadian(startAngle),getRadian(startAngle+angles[i]));
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fillStyle=color;
+    ctx.fill();
+  //绘制引出线
+    ctx.beginPath();
+    var lineAngle=startAngle+angles[i]/2;
+    var x1=(r+out)*Math.cos(getRadian(lineAngle))+x;
+    var y1=(r+out)*Math.sin(getRadian(lineAngle))+y;
+    ctx.moveTo(x,y);
+    ctx.lineTo(x1,y1);
+    ctx.strokeStyle=color;
+    
+    var txt=data[i].name;
+    ctx.font='40px 宋体';
+    var w=ctx.measureText(txt).width;//自体长度
+    
+    if(x1<x){
+      w=-w;
+      ctx.textAlign='right';
+    }else{
+      ctx.textAlign='left';
+    }
+    ctx.strokeText(txt,x1,y1-5);
+    ctx.lineTo(x1+w,y1);
+    ctx.stroke();
+    
+    startAngle=startAngle+angles[i];
+    ctx.restore();
+  }
+  
+  function getRadian(value){
+    return value*Math.PI/180;
+  }
+  
+  function getColor(){
+    return "rgba("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+",1)"
+  }
+ </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="700" height="400"></canvas>
+
+<script>
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//获取绘图的API
+
+    ctx.moveTo(50,50);
+    ctx.lineTo(610,50);
+    ctx.lineTo(610,350);
+    ctx.lineTo(50,350);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    //内部的箭头
+
+    ctx.moveTo(330,100);
+    ctx.lineTo(150,200);
+    ctx.lineTo(230,200);
+    ctx.lineTo(230,300);
+    ctx.lineTo(430,300);
+    ctx.lineTo(430,200);
+    ctx.lineTo(510,200);
+    ctx.closePath();  //闭合路径
+
+    ctx.fill();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

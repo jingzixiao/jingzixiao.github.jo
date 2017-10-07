@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        /*
+            canvas中提供的绘制矩形的API
+            rect(x,y,w,h);
+                绘制要给矩形的路径，但是不会显示，如果需要显示必须手动调用stroke 或者fill方法
+            strokeRect(x,y,w,h);
+                描边一个矩形
+            fillRect(x,y,w,h);
+                填充一个矩形
+            clearRect(x,y,w,h);
+                清除指定的矩形区域
+        */
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+//        ctx.rect(100,100,100,100); //只是设计好了要给矩形路径
+//        ctx.stroke();
+//        ctx.fill();
+
+        ctx.strokeRect(100,100,200,200); //描边矩形
+
+        ctx.fillRect(200,200,200,200); //填充矩形
+
+//        ctx.clearRect(150,150,350,200); //清空指定的矩形区域
+
+        ctx.clearRect(0,0,cs.width,cs.height);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2-为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="myBox" style="width: 800px;height:500px;"></div>
+    <!--1-引入js插件-->
+    <script src="echarts.min.js"></script>
+    <script>
+        // 1-基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('myBox'));
+
+
+        //2-设置数据的选项
+        var  option={
+            //标题
+            title:{
+                text:'黑马前端毕业体重'
+            },
+            //图例
+            legend:{
+                data:['体重','身高']
+            },
+            //x轴
+            xAxis:{
+                data:['黑马8期','黑马9期','黑马10期','黑马11期','黑马12期','黑马13期']
+            },
+            yAxis:{
+                //y轴的数据可以不用设置，会根据数值自动生成
+            },
+            series:[
+                {
+                    name:'体重',
+                    type:'line',//图标类型  bar 柱状图 line 折线图 pie 饼图
+                    data:[100,89,120,70,90,150],
+                },
+                {
+                    name:'身高',
+                    type:'line',//图标类型  bar 柱状图 line 折线图 pie 饼图
+                    data:[170,189,160,170,190,250],
+                }
+            ]
+
+
+        }
+
+        //3- 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    </script>
+</body>
+</html>

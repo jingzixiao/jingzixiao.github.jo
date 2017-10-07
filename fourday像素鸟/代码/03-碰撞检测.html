@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        ctx.rect(100,100,200,200);
+
+//        ctx.fillRect();
+//        ctx.strokeRect();
+
+        ctx.stroke();
+
+        //(50,50);  (150,150);
+        console.log(ctx.isPointInPath(50, 50));;//判断点是否在路径中
+        console.log(ctx.isPointInPath(150, 150));;//判断点是否在路径中
+
+        cs.onmousemove=function(e){
+            console.log(e.offsetX);
+            console.log(e.offsetY);
+            var x=e.offsetX
+            var y=e.offsetY;
+            if(ctx.isPointInPath(x,y)){
+                alert('别碰我！讨厌~');
+            }
+        }
+
+    </script>
+</body>
+</html>

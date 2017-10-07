@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="500" height="400"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var size=10;
+  var gap=10;
+  var ps=[];
+  
+  for (var i = 0; i <20; i++) {
+    var obj={};
+    obj.x=size*i +gap*i;
+    obj.y=gap;
+    ps.push(obj);
+  }
+  
+  console.log(ps);
+
+  function draw(x,y){
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+size,y);
+    ctx.lineTo(x+size,y+size);
+    ctx.lineTo(x,y+size);
+    ctx.closePath();
+//    ctx.fillStyle="cyan";
+//    ctx.fill();
+
+  }
+  for (var j = 0; j <ps .length; j++) {
+    draw(ps[j].x,ps[j].y);
+//    ctx.strokeStyle="hsla("+j*5+",100%,50%,1)";
+//    ctx.stroke();
+    ctx.fillStyle="hsla("+j*5+",100%,50%,1)";
+    ctx.fill();
+    
+  }
+</script>
+</body>
+</html>

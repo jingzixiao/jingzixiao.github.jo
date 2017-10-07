@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="1000" height="600" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        for (var i = 0; i < 120; i++) {
+
+            ctx.beginPath();
+//           ctx.moveTo(500,500);
+            ctx.arc(500,800,650+i,Math.PI,2*Math.PI);
+            ctx.strokeStyle='hsla('+i*3+',100%,50%,1)';
+            ctx.stroke();
+
+        }
+
+
+    </script>
+</body>
+</html>

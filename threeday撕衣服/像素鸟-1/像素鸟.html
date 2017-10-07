@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>像素鸟</title>
+</head>
+<body>
+<!--思路
+面向对象
+    找对象  设计对象 属性 方法
+    
+    小鸟
+    柱子
+    陆地
+    天空
+    游戏管理对象
+
+
+-->
+<canvas width="500" height="800" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+
+  /* 小鸟加速下落
+ 
+   Vt=Vo+at 求当前速度
+   S=V*t+1/2a*t*t  指定时间内移动的距离
+ 
+   * */
+  var w=52;  //一只小鸟的大小
+  var h=45;
+  var i=0;
+  var y=0;  //移动的距离
+  var speed=0;
+  var startTime=+new Date();  //当前毫秒数
+  var a=0.0005;
+  var endTime=0;
+  var Dvalue=0;  //时间差
+
+  /*
+   随之时间的推移，鸟下落的速的越来越快，鸟头旋转的角度越来越大
+   规则： 鸟头的方向 和 速度 成正比
+   当前速度*最大角度/最大速度=当前角度
+   */
+  
+  var maxSpeed=0.5;
+  var angle=0;  //鸟头的方向
+  var maxAngle=45;
+//  console.log(startTime);
+  var birdImg=new Image();
+  birdImg.src='imgs/birds.png';
+
+  birdImg.onload=function(){
+    
+    setInterval(function(){
+      //定时器中需要重绘小鸟，要用到移动的距离
+      endTime=+new Date();  //获取结束时间
+      Dvalue=endTime-startTime;
+      startTime=endTime;
+      speed=speed+a*Dvalue;  //当前速度
+      y=y+speed*Dvalue+1/2*a*Dvalue*Dvalue;
+      //指定时间内移动距离  需要加上前面下落的距离;
+  
+      //当前小鸟的角度
+      angle=speed*maxAngle/maxSpeed;
+      if(angle>45){
+        angle=45;
+      }
+//      console.log(angle);
+      
+      ctx.clearRect(0,0,cs.width,cs.height);
+      ctx.save();
+      ctx.translate(100,100+y);
+      ctx.rotate(angle*Math.PI/180);
+      
+      ctx.drawImage(birdImg,i*w,0,w,h,-w/2,-h/2,w,h);
+      ctx.restore();
+      i++;
+      i=i%3;
+    },50)
+   
+  }
+  
+ window.onclick=function(){
+   speed=-0.3;
+ }
+  
+  
+  
+  
+  
+  
+ </script>
+</body>
+</html>

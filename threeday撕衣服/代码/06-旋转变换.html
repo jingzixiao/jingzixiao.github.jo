@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        ctx.translate(100,100);
+
+        ctx.lineWidth=3;
+        ctx.moveTo(400,0);
+        ctx.lineTo(0,0);
+        ctx.lineTo(0,200);
+        ctx.stroke();
+        ctx.fillRect(200,0,150,60);
+
+        ctx.rotate(30*Math.PI/180);
+        ctx.beginPath();
+        ctx.strokeStyle='red';
+
+        ctx.moveTo(400,0);
+        ctx.lineTo(0,0);
+        ctx.lineTo(0,200);
+        ctx.stroke();
+        ctx.fillRect(200,0,150,60);
+
+        ctx.rotate(30*Math.PI/180);
+        ctx.beginPath();
+        ctx.strokeStyle='blue';
+
+        ctx.moveTo(400,0);
+        ctx.lineTo(0,0);
+        ctx.lineTo(0,200);
+        ctx.stroke();
+
+        ctx.fillRect(200,0,150,60);
+
+    </script>
+</body>
+</html>

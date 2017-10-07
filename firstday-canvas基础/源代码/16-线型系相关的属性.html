@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="500"></canvas>
+
+<script>
+
+    /*
+     lineCap:
+     设置线型末端的样式,
+     可取值为: 'butt'( 默认 ), 'round', 'square'.
+     'butt' 表示两端使用方形结束.
+     'round' 表示两端使用圆角结束.
+     'square' 表示突出的方形结束.
+
+     lineJoin：
+     设置两条直线的拐点描述方式.
+     可以取值 'round', 'bevel', 'miter'(默认)
+     'round' 使用圆角连接.
+     'bevel' 使用平切连接.
+     'miter' 使用尖角连接.
+
+    */
+
+//
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//获取绘图的API
+//
+//    ctx.lineWidth=30;
+//    ctx.lineCap='butt'; //默认的方形结束
+//    ctx.moveTo(100,100);
+//    ctx.lineTo(500,100);
+//    ctx.stroke();//描边
+//
+//    ctx.beginPath();
+//    ctx.lineCap='round';//使用突出圆角结束
+//    ctx.moveTo(100,200);
+//    ctx.lineTo(500,200);
+//    ctx.stroke();
+//
+//
+//    ctx.beginPath();
+//    ctx.lineCap='square'; //表示突出的方形结束.
+//    ctx.moveTo(100,300);
+//    ctx.lineTo(500,300);
+//
+//    ctx.stroke();
+
+    ctx.lineJoin='miter';//'miter' 使用尖角连接.
+    ctx.lineWidth=30;
+    ctx.moveTo(100,100);
+    ctx.lineTo(200,200);
+    ctx.lineTo(300,100);
+    ctx.stroke();
+
+    ctx.beginPath();
+//    ctx.strokeStyle='pink';
+    ctx.lineJoin='round';// 圆角连接
+    ctx.lineWidth=30;
+    ctx.moveTo(100,200);
+    ctx.lineTo(200,300);
+    ctx.lineTo(300,200);
+    ctx.stroke();
+
+
+    ctx.beginPath();//开启新路径，避免对上面的代码产生干扰
+    ctx.lineJoin='bevel';//平切
+    ctx.lineWidth=30;
+    ctx.moveTo(100,300);
+    ctx.lineTo(200,400);
+    ctx.lineTo(300,300);
+    ctx.stroke();
+
+
+
+
+
+</script>
+</body>
+</html>

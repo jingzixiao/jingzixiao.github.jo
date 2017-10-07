@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var cs=document.querySelector('canvas');
+
+        var ctx=cs.getContext('2d');//获取绘图的API
+
+        ctx.moveTo(300,50);
+
+        ctx.lineTo(500,250);
+
+        ctx.lineTo(100,250);
+
+        //ctx.closePath();//闭合路径
+        ctx.lineWidth=5;
+        ctx.strokeStyle='red'; //描边的样式
+        ctx.stroke();//描边
+
+        ctx.fillStyle='green'; //填充样式
+        ctx.fill(); //填充 是如果路径没有闭合，会先自动闭合 在填充
+    </script>
+</body>
+</html>

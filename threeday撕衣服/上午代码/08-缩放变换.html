@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+    <script>
+
+        /*
+            scale(x,y); 坐标系放缩
+            值大于1 方法  小于1 缩小
+
+            注意： 放缩比例取 -1 可以让改坐标轴方向
+        * */
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+//        ctx.strokeRect(0,0,100,100);
+//        ctx.moveTo(300,0);
+//        ctx.lineTo(300,200);
+//        ctx.stroke();
+//
+//        ctx.scale(0.5,0.5);
+//        ctx.beginPath();
+//        ctx.strokeStyle='red';
+//        ctx.moveTo(300,0);
+//        ctx.lineTo(300,200);
+//        ctx.stroke();
+//        ctx.strokeRect(0,0,100,100);
+//
+//        ctx.scale(4,4);
+//
+//        ctx.beginPath();
+//        ctx.strokeStyle='green';
+//        ctx.moveTo(300,0);
+//        ctx.lineTo(300,200);
+//        ctx.stroke();
+//        ctx.strokeRect(0,0,100,100);
+
+//        ctx.lineWidth=5;
+//        ctx.strokeStyle='gold';
+//        ctx.translate(0,200);
+//
+//        ctx.moveTo(400,0);
+//        ctx.lineTo(0,0);
+//        ctx.stroke();
+//
+//        ctx.fillRect(0,100,150,60);
+//
+//        ctx.scale(1,-1);
+//
+//        ctx.fillRect(0,100,150,60);
+
+        ctx.translate(0,cs.height); //平移坐标
+
+        ctx.scale(1,-1);//把y轴翻转
+
+        ctx.fillRect(0,0,50,50);
+        ctx.fillRect(100,100,50,50);
+        ctx.fillRect(0,200,50,50);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>完整饼图</title>
+</head>
+<body>
+<canvas width="800" height="500" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  //思路先和一个6等分的圆
+  var x=cs.width/2;
+  var y=cs.height/2;
+  var angles;
+  var startAngle=-90;
+  var r=150;
+  var sum=0;
+  var out=30;
+  var data=[
+    {name:'前端',value:888},
+    {name:'JAVA',value:666},
+    {name:'Python',value:288},
+    {name:'UI设计',value:333},
+    {name:'PHP',value:543},
+    {name:'IOS',value:111}
+  ];
+  //根据data数据  把value 生成对应角度
+  data.forEach(function(ele,index,data){
+    return sum+=ele.value;
+  })
+//  console.log(sum);
+  angles=data.map(function(ele,index,data){
+    return ele.value*360/sum;
+  })
+  console.log(angles);
+
+  for (var i = 0; i < angles.length; i++) {
+    var color=getColor();
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.arc(x,y,r,getRadian(startAngle),getRadian(startAngle+angles[i]));
+    ctx.closePath();
+    ctx.fillStyle=color;
+    ctx.fill();
+    
+    //画线 确定坐标点  (加上圆心的坐标)
+    ctx.beginPath();
+    var lineAngle=startAngle+angles[i]/2;
+    var x1=(r+out)*Math.cos(getRadian(lineAngle))+x;
+    var y1=(r+out)*Math.sin(getRadian(lineAngle))+y;
+    
+    ctx.moveTo(x,y);
+    ctx.lineTo(x1,y1);
+    ctx.strokeStyle=color;
+    //测量文字的长度
+    var txt=data[i].name;
+    ctx.font="40px 宋体";
+   
+    var w=ctx.measureText(txt).width;
+//    console.log(w);
+    if(x1<x){
+      w=-w;
+      ctx.textAlign="right";
+    }else{
+      ctx.textAlign="left";
+      //样式在重新设置之前不会变;所以要变更过来
+    }
+    ctx.lineTo(x1+w,y1);
+    ctx.stroke();
+    //写文字描述
+    ctx.fillText(txt,x1,y1-5);
+  
+    startAngle=startAngle+angles[i];
+    ctx.restore();
+  }
+   
+ 
+  function getColor(){
+    return "rgba("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+",1)"
+  }
+  
+  function getRadian(value){
+    return value*Math.PI/180;
+  }
+ </script>
+</body>
+</html>

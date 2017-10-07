@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        /*
+            绘制圆弧的注意点：
+                绘制圆弧是，如果使用moveTo ,绘制圆弧时，会自动的将圆弧的起点和moveTo的坐标点进行连线；
+
+        */
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+        ctx.moveTo(100,100);
+
+        ctx.arc(200,200,100,getRadian(90),getRadian(330));
+        ctx.stroke();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(300,100);
+        ctx.arc(400,200,100,getRadian(90),getRadian(330),true);
+        ctx.stroke();
+//        ctx.fill();
+
+
+        //将角度转为弧度函数
+        function getRadian(value){
+            return value*Math.PI/180;
+        }
+
+    </script>
+</body>
+</html>

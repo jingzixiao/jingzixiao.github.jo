@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+            /*width:600px;*/
+            /*height: 400px;*/
+        }
+    </style>
+</head>
+<body>
+<!--width="600" height="400"-->
+<canvas width="600" height="400" ></canvas>
+
+
+<script>
+    /*
+        setLineDash(数组); 用于设置虚线
+        getLineDash(); 用于获取虚线的数据
+        lineDashOffset=number; 设置虚线的偏移
+            正值向左偏移  ，负值向右偏移
+    */
+    //1-获取canvas标签
+    var cs=document.querySelector('canvas');
+
+    // 2-获取2d绘图的API(每个画布都有自己单独的API)
+    var ctx=cs.getContext('2d'); //工具箱
+
+    ctx.lineWidth=10;
+
+    ctx.moveTo(100,100);
+    ctx.lineTo(100,150);
+
+    ctx.moveTo(500,100);
+    ctx.lineTo(500,150);
+
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.setLineDash([10,20,30,40]); //设置虚线的样式 接受一个数组
+    console.log(ctx.getLineDash());
+    ctx.lineDashOffset=-15; //让虚线偏移，用于微调
+    ctx.moveTo(100,125);
+    ctx.lineTo(500,125);
+    ctx.stroke();
+
+
+</script>
+</body>
+</html>

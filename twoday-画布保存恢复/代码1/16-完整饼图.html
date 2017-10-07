@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        var  x=cs.width/2;
+        var y=cs.height/2;
+        var startAngle=-90; //起始角度
+        var sum=0;
+        var angles;
+        var r=150;
+        var out=30;//隐藏线突出的部分
+
+        var data=[
+            {name:'前端',value:888},
+            {name:'JAVA',value:666},
+            {name:'Python',value:288},
+            {name:'UI设计',value:333},
+            {name:'PHP',value:543},
+            {name:'IOS',value:111}
+        ];
+
+        //根据data数据  把value 生成对应角度
+        data.forEach(function(ele){
+            sum+=ele.value;
+        })
+
+        angles=data.map(function(ele){
+            return ele.value*360/sum;
+        });
+
+
+        for (var i = 0; i < angles.length; i++) {
+            //根据生成的角度绘制圆弧
+            var color=getColor();
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.arc(x,y,r,getRadian(startAngle),getRadian(startAngle+angles[i]));
+            ctx.closePath();//闭合路径
+            ctx.fillStyle=color;
+            ctx.fill();
+
+            //画线引入线
+            ctx.beginPath();
+            var lineAngle=startAngle+angles[i]/2;//当前引出线的角度
+            var x1=x+(r+out)*Math.cos(getRadian(lineAngle));
+            var y1=y+(r+out)*Math.sin(getRadian(lineAngle));
+            ctx.strokeStyle=color;//设置颜色
+
+            ctx.moveTo(x,y);
+            ctx.lineTo(x1,y1);
+            //测量文字的长度
+            var txt=data[i].name;
+            ctx.font='20px 宋体'; //先设置字体样式，在测量
+            var w=ctx.measureText(txt).width;
+
+            //画水平线
+            if(x1<x){
+                w=-w;
+                ctx.textAlign='right';
+            }else{
+                ctx.textAlign='left';
+            }
+            ctx.lineTo(x1+w,y1);
+            ctx.stroke();
+
+            //写文字描述
+
+            ctx.fillText(txt,x1,y1-5);
+
+            //更新起始角度
+            startAngle=startAngle+angles[i];
+        }
+
+
+        //角度转弧度
+        function getRadian(value){
+            return value*Math.PI/180;
+        }
+        //随机颜色
+        function getColor(){
+            return 'rgba('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+',1)';
+        }
+    </script>
+</body>
+</html>

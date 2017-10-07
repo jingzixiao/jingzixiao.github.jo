@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="800" height="800"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  ctx.moveTo(50,50);
+  ctx.lineTo(610,50);
+  ctx.lineTo(610,350);
+  ctx.lineTo(50,350);
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.moveTo(330,100);
+  ctx.lineTo(150,200);
+  ctx.lineTo(230,200);
+  ctx.lineTo(230,300);
+  ctx.lineTo(430,300);
+  ctx.lineTo(430,200);
+  ctx.lineTo(510,200);
+  
+  ctx.closePath();   //闭合路径
+  ctx.stroke();
+  ctx.fillStyle="cyan";
+  ctx.fill();
+</script>
+</body>
+</html>

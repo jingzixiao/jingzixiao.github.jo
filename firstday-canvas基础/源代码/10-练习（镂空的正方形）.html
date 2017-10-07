@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="600"></canvas>
+
+<script>
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//获取绘图的API
+
+    //画外面的大矩形
+    //顺时针画
+    ctx.moveTo(100,100);
+    ctx.lineTo(500,100);
+    ctx.lineTo(500,500);
+    ctx.lineTo(100,500);
+    ctx.closePath();
+
+//    ctx.fill();
+//    ctx.stroke();//描边
+
+//    小矩形
+
+//    ctx.moveTo(200,200);
+//    ctx.lineTo(400,200);
+//    ctx.lineTo(400,400);
+//    ctx.lineTo(200,400);
+//    ctx.closePath();       //闭合路径
+
+
+    //逆时针画
+    //fill 填充 满足非零环绕数的原则
+
+    ctx.moveTo(200,200);
+    ctx.lineTo(200,400);
+    ctx.lineTo(400,400);
+    ctx.lineTo(400,200);
+    ctx.closePath();    //闭合路径
+
+    ctx.stroke();
+    ctx.fill(); //填充
+
+
+</script>
+</body>
+</html>

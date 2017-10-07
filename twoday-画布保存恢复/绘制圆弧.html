@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制圆弧</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  ctx.arc(100,200,50,0,145*Math.PI/180,true);
+//  ctx.closePath();
+//  ctx.fill();
+  ctx.stroke();
+  
+  ctx.beginPath();
+  ctx.moveTo(200,200);
+  ctx.arc(200,200,100,90*Math.PI/180,145*Math.PI/180);
+  ctx.closePath();
+  ctx.stroke();
+  
+ </script>
+</body>
+</html>

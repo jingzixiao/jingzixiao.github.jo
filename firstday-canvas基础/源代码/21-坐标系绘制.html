@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="800" height="500"></canvas>
+
+
+<script>
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//绘图的API
+
+    var gap=10;//边距
+    var w=cs.width; //宽
+    var h=cs.height; //高
+    var size=10;
+
+    //画坐标轴的线
+    ctx.moveTo(gap,gap);
+    ctx.lineTo(gap,h-gap);
+    ctx.lineTo(w-gap,h-gap);
+    ctx.stroke();
+//
+    //画箭头一
+    ctx.beginPath();
+    ctx.moveTo(w-gap,h-gap);
+    ctx.lineTo(w-gap-20,h-gap-7);
+    ctx.lineTo(w-gap-20,h-gap+7);
+    ctx.closePath();
+    ctx.fill();
+
+    //画箭头二
+    ctx.beginPath();
+    ctx.moveTo(gap,gap);
+    ctx.lineTo(gap-7,gap+20);
+    ctx.lineTo(gap,gap+14);
+    ctx.lineTo(gap+7,gap+20);
+    ctx.closePath();
+    ctx.fill();
+
+//    //画点
+//    var x=200;
+//    var y=100;
+
+
+
+    var ps=[
+        {x:0,y:0},
+        {x:50,y:80},
+        {x:120,y:200},
+        {x:200,y:10},
+        {x:400,y:500},
+        {x:450,y:200},
+        {x:750,y:500},
+    ];//所有的点
+
+    function drawPoint(x,y){
+
+        //将canvas坐标系坐标 转成 自己坐标系的坐标
+        x=x+gap;
+        y=h-y-gap;
+
+        //让矩形中心正对 坐标点
+        x=x-size/2;
+        y=y-size/2;
+
+
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(x+size,y);
+        ctx.lineTo(x+size,y+size);
+        ctx.lineTo(x,y+size);
+        ctx.closePath();
+        ctx.fillStyle='red';
+        ctx.fill();
+    }
+
+
+//    drawPoint(100,100);
+
+    //绘制所有的点
+    for (var i = 0; i < ps.length; i++) {
+        var obj = ps[i];
+        drawPoint(obj.x,obj.y);
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="800" height="500"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  
+  ctx.lineWidth=40;
+  ctx.strokeStyle="yellow";
+  ctx.moveTo(100,100);
+  ctx.lineTo(500,100);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.lineWidth=20;
+  ctx.strokeStyle="#ccc";
+  ctx.moveTo(100,200);
+  ctx.lineTo(500,200);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.lineWidth=5;
+  ctx.strokeStyle="cyan";
+  ctx.moveTo(100,300);
+  ctx.lineTo(500,300);
+  ctx.stroke();
+
+
+</script>
+</body>
+</html>

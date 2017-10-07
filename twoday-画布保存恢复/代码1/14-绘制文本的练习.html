@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="600" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        ctx.moveTo(100,100);
+        ctx.lineTo(500,100);
+
+        ctx.moveTo(100,320);
+        ctx.lineTo(500,320);
+
+        ctx.moveTo(100,480);
+        ctx.lineTo(600,480);
+
+        ctx.moveTo(300,0);
+        ctx.lineTo(300,600);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle='blue';
+        ctx.font="40px 宋体";
+        //文字水平对齐方式
+        ctx.textAlign='left';
+        ctx.strokeText('Left',300,100);
+
+        ctx.textAlign='right';
+        ctx.strokeText('Right',300,50);
+
+        ctx.textAlign='center';
+        ctx.strokeText('Center',300,150);
+
+        ctx.textAlign='start';
+        ctx.strokeText('Start',300,200);
+
+
+        ctx.textAlign='end';
+        ctx.strokeText('End',300,250);
+
+        //竖直对齐方式
+        ctx.beginPath();
+        ctx.strokeStyle='red';
+        ctx.textAlign='start';
+
+        ctx.textBaseline='bottom';
+        ctx.strokeText('Bottom',100,320);
+
+        ctx.textBaseline='middle';
+        ctx.strokeText('Middle',250,320);
+
+        ctx.textBaseline='top';
+        ctx.strokeText('Top',390,320);
+
+        ctx.textBaseline='hanging';
+        ctx.strokeText('Hanging',100,480);
+
+        ctx.textBaseline='alphabetic';
+        ctx.strokeText('alphabetic',220,480);
+
+        ctx.textBaseline='ideographic';
+        ctx.strokeText('ideographic',430,480);
+
+
+
+
+    </script>
+</body>
+</html>

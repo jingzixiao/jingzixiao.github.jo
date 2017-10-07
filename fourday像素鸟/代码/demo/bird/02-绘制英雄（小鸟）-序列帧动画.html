@@ -1,0 +1,35 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas width="600" height="400" style="border: 1px solid #000;"></canvas>
+
+	<script>
+		var cs=document.querySelector('canvas');
+		var ctx=cs.getContext('2d');
+		var h=45;
+		var w=52;
+		var x=100;
+		var y=100;
+
+		var bird=new Image();
+
+		bird.onload=function(){
+			var i=0;
+			var timer=setInterval(function(){
+				ctx.clearRect(0,0,cs.width,cs.height);//清空画布
+				ctx.drawImage(bird,i*w,0,w,h,x,y,w,h);
+				i++;
+				i=i%3; //0 1 2
+			},50);
+		}
+
+
+
+		bird.src="imgs/birds.png";
+	</script>
+</body>
+</html>

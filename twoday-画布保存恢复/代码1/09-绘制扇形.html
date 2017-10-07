@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="900" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        ctx.moveTo(200,200);
+        ctx.arc(200,200,100,getRadian(-60),getRadian(60));
+        ctx.closePath();
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.moveTo(400,200);
+        ctx.arc(400,200,100,getRadian(-60),getRadian(60));
+        ctx.closePath();
+        ctx.fill();
+
+        var r=0;
+        var t=setInterval(function(){
+            r+=5;
+            ctx.beginPath();
+            ctx.moveTo(700,200);
+            ctx.arc(700,200,100,getRadian(0),getRadian(r));
+            ctx.closePath();
+            ctx.fillStyle='#daa520';
+            ctx.fill();
+            if(r>=360){
+                clearInterval(t);
+            }
+        },10);
+
+        //将角度转为弧度函数
+        function getRadian(value){
+            return value*Math.PI/180;
+        }
+
+    </script>
+</body>
+</html>

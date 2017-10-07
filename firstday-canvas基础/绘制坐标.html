@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid cyan;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="800" height="700"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var gap=10;
+  var w=cs.width;
+  var h=cs.height;
+  var size=10;
+  //画作标轴的线
+  ctx.moveTo(gap,gap);
+  ctx.lineTo(gap,h-gap);
+  ctx.lineTo(w-gap,h-gap);
+  ctx.stroke();
+  //画箭头一
+  ctx.beginPath();
+  ctx.moveTo(w-gap,h-gap);
+  ctx.lineTo(w-gap-20,h-gap-7);
+  ctx.lineTo(w-gap-20,h-gap+7);
+  ctx.closePath();
+  ctx.fill();
+  //画箭头二
+  ctx.beginPath();
+  ctx.moveTo(gap,gap);
+  ctx.lineTo(gap-7,gap+20);
+  ctx.lineTo(gap,gap+14);
+  ctx.lineTo(gap+7,gap+20);
+  ctx.closePath();
+  ctx.fill();
+  //画点
+  var ps=[
+    {x:0,y:0},
+    {x:100,y:50},
+    {x:50,y:200},
+    {x:150,y:250},
+    {x:300,y:300},
+    {x:100,y:100},
+    {x:400,y:600}
+  ]
+ 
+
+  //将canvas坐标系坐标 转成 自己坐标系的坐标
+  function drawPoint(x,y){
+    x=x+gap;  //
+    y=h-gap-y;
+    x=x-size/2;
+    y=y-size/2;
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+size,y);
+    ctx.lineTo(x+size,y+size);
+    ctx.lineTo(x,y+size);
+    ctx.closePath();
+    ctx.fillStyle="cyan";
+    ctx.fill();
+    //  ctx.stroke();
+  }
+for (var i = 0; i < ps.length; i++) {
+  var obj=ps[i];
+  drawPoint(obj.x,obj.y);
+}
+
+  ctx.beginPath();
+  for (var j = 0; j < ps.length; j++) {
+    ps[j].x=ps[j].x+gap;  //
+    ps[j].y=h-gap-ps[j].y;
+//    ps[j].x=ps[j].x-size/2;
+//    ps[j].y=ps[j].y-size/2;
+   
+    if(j==0){
+      ctx.moveTo(ps[j].x,ps[j].y);
+    }else{
+      ctx.lineTo(ps[j].x,ps[j].y);
+    }
+  }
+  ctx.stroke();
+</script>
+</body>
+</html>

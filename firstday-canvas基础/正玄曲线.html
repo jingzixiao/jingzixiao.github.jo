@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  
+  </style>
+</head>
+<body>
+<canvas width="500" height="600"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var x=0;
+  var y=0;
+  var timer=null;
+//  setInterval(function(){
+//    y=Math.sin(x/20);
+//    ctx.lineTo(x,y*50+200);
+//    ctx.stroke();
+//    x++;
+//  },10)
+  
+ timer= setInterval(function(){
+    y=x*x;
+    ctx.lineTo(x*10,y);
+    ctx.stroke();
+    if(x>=20){
+      clearInterval(timer);
+    }
+    x++;
+  },100)
+ 
+</script>
+</body>
+</html>

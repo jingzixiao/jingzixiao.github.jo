@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+        /*div{*/
+            /*width: 300px;*/
+            /*height: 300px;*/
+            /*border: 1px solid #000;*/
+            /*!*background-color: rgba(255,255,255,1);*!*/
+            /*background-color: hsla(0,100%,50%,1);*/
+            /*!**/
+                 /*h:色调  0-360*/
+                 /*s:饱和度 颜色的鲜艳程度  0-100%*/
+                 /*l:亮度    0-100%*/
+            /**!*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <!--<div></div>-->
+
+    <script>
+        var cs=document.querySelector('canvas');
+
+        var ctx=cs.getContext('2d');//绘图的API
+
+        for (var i = 0; i < 120; i++) {
+            ctx.beginPath();//开启新的路径
+            ctx.strokeStyle='hsla('+i*3+',100%,50%,1)';
+            ctx.moveTo(100,100+i);
+            ctx.lineTo(300,100+i);
+            ctx.stroke(); //描边
+        }
+
+    </script>
+</body>
+</html>

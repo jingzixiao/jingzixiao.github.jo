@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        /*
+            注意：
+             moveTo 只是移动画笔
+             lineTo 会画线并且移动画笔
+        */
+        var cs=document.querySelector('canvas');
+
+        //获取绘图的API
+        var ctx=cs.getContext('2d'); //获取2d绘图的API, webgl（3d绘图的api）
+
+
+        //移动画笔
+        ctx.moveTo(100,100);
+        //画线
+        ctx.lineTo(300,100);
+
+//        ctx.lineTo(300,200);
+        ctx.moveTo(300,200);
+
+        ctx.lineTo(100,200);
+
+        //描边
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制圆角矩形</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  ctx.moveTo(100,70);
+  ctx.lineTo(100,150);
+  ctx.arcTo(100,200,150,200,50);
+  ctx.lineTo(300,200);
+  ctx.arcTo(350,200,350,150,50);
+  ctx.lineTo(350,70);
+  ctx.arcTo(350,20,300,20,50);
+  ctx.lineTo(150,20);
+  ctx.arcTo(100,20,100,70,50);
+  ctx.stroke();
+  
+ </script>
+</body>
+</html>

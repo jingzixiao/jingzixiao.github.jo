@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        var x=cs.width/2;
+        var y=cs.height/2;
+        var startAngle=-90; //起始角度从-90开始
+
+        var data=[1234,830,321,180,438,765];
+        var angles;//每个数据对应的角度
+        var sum=0;
+        //比例
+        //当前数据/数据总和=角度/360
+        //角度=当前数据*360/数据总和
+        data.forEach(function(ele,index,data1){
+            sum+=ele;
+        });
+
+        //算出对应的角度
+        angles=data.map(function(ele,index,data1){
+           return ele*360/sum;
+        });
+
+        //console.log(angles);
+
+        //根据算出的角度绘制成饼图
+
+        for (var i = 0; i < angles.length; i++) {
+           ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.arc(x,y,150,getRadian(startAngle),getRadian(startAngle+angles[i]));
+            ctx.closePath();//闭合路径
+//            ctx.stroke();//描边
+            ctx.fillStyle=getColor();
+            ctx.fill();
+
+            //本次结束的角度是下次开始绘制角度
+            startAngle=startAngle+angles[i];
+        }
+
+
+
+
+        //角度转弧度
+        function getRadian(value){
+            return value*Math.PI/180;
+        }
+        //随机颜色
+        function getColor(){
+            return 'rgba('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+',1)';
+        }
+
+
+
+
+    </script>
+</body>
+</html>

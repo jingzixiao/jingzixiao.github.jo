@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        var x=cs.width/2;
+        var y=cs.height/2;
+        var size=10; //几等分
+        var angle=360/size; //60deg
+        var startAngle=0;
+
+//        for (var i = 0; i < size; i++) {
+//            ctx.beginPath();
+//            ctx.moveTo(x,y);
+//            ctx.arc(x,y,150,getRadian(startAngle),getRadian(startAngle+angle));
+//            ctx.closePath();
+//            ctx.fillStyle=getColor();
+//            ctx.fill();
+//            ctx.stroke();//描边
+//            //本次结束的角度是下一次扇形开始的角度
+//            startAngle=startAngle+angle;
+//        }
+
+        var timer=setInterval(function(){
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.arc(x,y,150,getRadian(startAngle),getRadian(startAngle+angle));
+            ctx.closePath();
+            ctx.fillStyle=getColor();
+            ctx.fill();
+            ctx.stroke();//描边
+            //本次结束的角度是下一次扇形开始的角度
+            startAngle=startAngle+angle;
+            if(startAngle>=360){
+                clearInterval(timer);
+            }
+        },100);
+
+        function getRadian(value){
+            return value*Math.PI/180;
+        }
+
+        function getColor(){
+            return 'rgba('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+',1)';
+        }
+
+        console.log(getColor());
+
+
+    </script>
+</body>
+</html>

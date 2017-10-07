@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Land</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script src='Land.js'></script>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var img=new Image();
+  img.src="../imgs/land.png";
+  img.onload=function(){
+    var land=new Land({
+      ctx:ctx,
+      img:img,
+      index:0
+    })
+    var land1=new Land({
+      ctx:ctx,
+      img:img,
+      index:1
+    })
+    var land2=new Land({
+      ctx:ctx,
+      img:img,
+      index:2
+    })
+    setInterval(function(){
+      ctx.clearRect(0,0,cs.width,cs.height);
+      land.render();
+      land1.render();
+      land2.render();
+    },100)
+    
+  }
+  
+  
+ </script>
+</body>
+</html>

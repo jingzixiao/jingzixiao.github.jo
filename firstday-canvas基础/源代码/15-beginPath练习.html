@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="500"></canvas>
+
+<script>
+    /*
+     ctx.stroke() ; 会把当前路径中所有代码进行绘制，如果使用新的样式进行描边，需要及时的使用beginPath()方法开启新的路径，防止对前面的代码进行重绘；
+
+     注意beginPath开启新的路径后，之前画笔的位置会丢失
+     */
+
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//获取绘图的API
+
+    ctx.moveTo(100,100);
+    ctx.lineWidth=20;
+    ctx.strokeStyle='blue';
+    ctx.lineTo(400,100);
+    ctx.stroke();
+
+    ctx.beginPath();//开启新路径
+    ctx.lineWidth=10;
+    ctx.strokeStyle='red';
+    ctx.moveTo(400,100); //重新移动画笔
+    ctx.lineTo(400,400);
+
+    ctx.stroke();
+
+    ctx.beginPath();//开启新路径
+    ctx.lineWidth=5;
+    ctx.strokeStyle='green';
+    ctx.moveTo(400,400); //重新移动画笔
+    ctx.lineTo(100,100);
+    ctx.stroke();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>帧动画的绘制</title>
+</head>
+<body>
+<canvas width="1200" height="600" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var bgImg=new Image();
+  bgImg.src="img/startbg.jpg";
+  var fishImg=new Image();
+  fishImg.src='img/fish8.png';  //12条鱼
+//  console.log(fishImg);
+  bgImg.onload=function(){
+//    ctx.drawImage(bgImg,0,0,cs.width,cs.height);
+  }
+  
+ 
+  var w=174;
+  var h=126;
+  var y=0;
+  var i=0;
+//  fishImg.onload=function(){
+//
+//   setInterval(function(){
+//
+//     ctx.clearRect(0,0,cs.width,cs.height);
+//     ctx.drawImage(bgImg,0,0,cs.width,cs.height);
+//     ctx.drawImage(fishImg,0,y*h,w,h,100+i,100,w,h);
+//     ctx.drawImage(fishImg,0,y*h,w,h,50+i,50,w*0.7,h*0.7);
+//     ctx.drawImage(fishImg,0,y*h,w,h,50+i,150,w*0.4,h*0.4);
+//     y++;
+//     i+=15;
+//     if(y>=8){
+//       y=0;
+//     }
+//     if(i>1200){
+//       i=-100;
+//     }
+//   },100)
+//
+//  }
+  
+  fishImg.onload=function(){
+    setInterval(function(){
+      ctx.clearRect(0,0,cs.width,cs.height);
+      ctx.drawImage(bgImg,0,0,cs.width,cs.height);
+      ctx.drawImage(fishImg,0,h*y,w,h,100+i,100,w,h);
+      ctx.drawImage(fishImg,0,h*y,w,h,50+i,50,w*0.7,h*0.7);
+      ctx.drawImage(fishImg,0,h*y,w,h,50+i,150,w*0.4,h*0.4);
+      y++;
+      if(y>8){
+        y=0;
+      }
+      i+=15;
+      if(i>1200){
+        i=-100;
+      }
+    },100)
+  }
+  
+ </script>
+</body>
+</html>

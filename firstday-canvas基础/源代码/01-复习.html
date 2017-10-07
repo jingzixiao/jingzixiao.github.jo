@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * test();  window.test();  this-->window
+    *
+    * new Person();  this--->new 创建出来的对象
+    * */
+
+    //this是动态的  会根据当前的执行环境决定执行谁；
+
+    function Person(){
+        this.name='zs';
+        this.age=18;
+    }
+
+    Person.prototype={
+        say:function(){
+            console.log(this);
+            alert('呵呵');
+            console.log(this.age);
+            console.log(this.name);
+        }
+    }
+
+    var p1=new Person();
+
+    var p2=new Person();
+
+    var p3=new Person();
+
+    p1.say(); //this执行 方法的调用者；
+
+    p2.say();
+
+    p3.say();
+
+    //进房间，你 要啊鞋子脱掉
+
+</script>
+</body>
+</html>

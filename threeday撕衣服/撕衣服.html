@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>撕衣服</title>
+  <style>
+    canvas{
+      display:block;
+      margin:0 auto;
+    }
+  </style>
+</head>
+<body>
+<canvas width="320" height="480" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var bgImg=new Image();
+  bgImg.src='img/g15_back.jpg';
+  var upImg=new Image();
+  upImg.src="img/g15_up.jpg";
+  
+  var isRip=false;
+  var size=30;
+  upImg.onload=function(){
+    ctx.drawImage(this,0,0,cs.width,cs.height);
+  }
+  
+//  cs.onmousedown=function(){
+//    isRip=true;
+//  }
+//
+//  cs.onmouseup=function(){
+//    isRip=false;
+//  }
+//
+//  cs.onmousemove=function(e){
+//
+//    if(isRip){
+//      var x=e.offsetX;
+//      var y=e.offsetY;
+//      console.log(x);
+//      ctx.drawImage(bgImg,x,y,size,size,x,y,size,size);
+//    }
+//
+//  }
+  
+  
+  
+ </script>
+</body>
+</html>

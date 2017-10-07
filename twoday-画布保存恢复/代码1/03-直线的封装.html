@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+        function line(ctx,x,y,x1,y1,color){
+            //画线之前先保存画布的之前的状态
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(x1,y1);
+            ctx.strokeStyle=color;
+            ctx.stroke();
+            //画线完成后恢复到画线之前的状态
+            ctx.restore();
+        }
+
+        line(ctx,100,100,500,100,'blue');
+
+        line(ctx,100,200,500,200,'red');
+
+        ctx.beginPath();
+        ctx.moveTo(100,300);
+        ctx.lineTo(500,300);
+        ctx.stroke();
+    </script>
+</body>
+</html>

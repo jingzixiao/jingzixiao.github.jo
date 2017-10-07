@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    (function(w){
+        function Map(){
+            this.row=20;
+            this.col=30;
+            this.color='blue';
+            this.size=25;
+            this.box=null;
+        }
+        Map.prototype.render=function(){
+            this.box=document.createElement('div');
+            this.box.style.width=this.col*this.size+'px';
+            this.box.style.background=this.color;
+            //.....
+
+            w.document.body.appendChild(this.box);
+
+        }
+
+
+        function Food(option){
+            this.x=0;
+            this.y=0;
+            this.size=25;
+            this.map=option.map;
+            this.color='red';
+        }
+
+        Food.prototype={
+            render:function(){},//渲染
+            setPos:function(){} //随机位置
+        }
+
+
+        function Snake(option){
+            this.map=option.map;
+            this.size=25;
+            this.body=[];
+            this.direction='left';
+        }
+
+        Snake.prototype={
+            render:function(){},
+            move:function(){},
+            eat:function(){}
+        }
+
+
+        function Game(){
+            this.map=new Map();
+            this.food=new Food();
+            this.snake=new Snake();
+            this.timer=null;
+        }
+
+
+        Game.prototype={
+            gameStart:function(){},
+            render:function(){},
+            impact:function(){},
+            userControl:function(){},
+            gameOver:function(){}
+        }
+
+
+
+    })(window);
+</script>
+</body>
+</html>

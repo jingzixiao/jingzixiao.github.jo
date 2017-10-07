@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>bird</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script src='Bird.js'></script>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var img=new Image();
+  
+  var bird;
+  img.src="../imgs/birds.png";
+  img.onload=function(){
+    ctx.clearRect(0,0,cs.width,cs.height);
+     bird=new Bird({
+      ctx:ctx,
+      img:img
+    })
+    var startTime=+new Date();
+    var endTime;
+    setInterval(function(){
+      endTime=+new Date();
+      var Dvalue=endTime-startTime;
+      startTime=endTime;
+      
+      ctx.clearRect(0,0,cs.width,cs.height);
+      bird.render(Dvalue);
+    },100)
+  }
+  
+  window.onclick=function(){
+    bird.speed=-0.3;
+  }
+  
+ </script>
+</body>
+</html>

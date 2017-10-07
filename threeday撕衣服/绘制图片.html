@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绘制图片</title>
+</head>
+<body>
+<canvas width="500" height="400" style="border:1px solid #ccc;"></canvas>
+<script>
+  var cs=document.querySelector("canvas");
+  var ctx=cs.getContext("2d");
+  var img=new Image();
+  img.src="img/2.jpg";
+  img.onload=function(){
+//    ctx.drawImage(img,100,100);
+//    ctx.drawImage(img,100,100,100,100);
+    ctx.drawImage(img,0,0,100,100,100,100,100,100);
+  }
+  
+  var img1=new Image();
+  img1.src="img/5.jpg";
+  img1.onload=function(){
+    ctx.drawImage(img1,180,180,160,160,20,100,200,200);
+    ctx.drawImage(img1,350,0,270,270,250,100,200,200);
+  }
+  
+  
+  
+ </script>
+</body>
+</html>

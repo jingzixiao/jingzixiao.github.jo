@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="800" height="500"></canvas>
+
+
+<script>
+    var cs=document.querySelector('canvas');
+
+    var ctx=cs.getContext('2d');//绘图的API
+
+    var gap=10;//边距
+    var w=cs.width; //宽
+    var h=cs.height; //高
+    var size=10;
+
+    //画坐标轴的线
+    ctx.moveTo(gap,gap);
+    ctx.lineTo(gap,h-gap);
+    ctx.lineTo(w-gap,h-gap);
+    ctx.stroke();
+
+    //画箭头一
+    ctx.beginPath();
+    ctx.moveTo(w-gap,h-gap);
+    ctx.lineTo(w-gap-20,h-gap-7);
+    ctx.lineTo(w-gap-20,h-gap+7);
+    ctx.closePath();
+    ctx.fill();
+
+    //画箭头二
+    ctx.beginPath();
+    ctx.moveTo(gap,gap);
+    ctx.lineTo(gap-7,gap+20);
+    ctx.lineTo(gap,gap+14);
+    ctx.lineTo(gap+7,gap+20);
+    ctx.closePath();
+    ctx.fill();
+    var size=10;
+
+
+
+
+   function drawPoint(x,y){
+       //转换坐标系
+       x=x+gap;
+       y=h-gap-y;
+
+       //调整中心点
+       x=x-size/2;
+       y=y-size/2;
+
+
+
+       ctx.beginPath();
+       ctx.moveTo(x,y);
+       ctx.lineTo(x+size,y);
+       ctx.lineTo(x+size,y+size);
+       ctx.lineTo(x,y+size);
+       ctx.closePath()
+       ctx.fillStyle='red';
+       ctx.fill();
+   }
+
+    var ps=[
+        {x:20,y:30},
+        {x:120,y:230},
+        {x:170,y:230},
+        {x:240,y:130},
+        {x:420,y:430},
+        {x:550,y:140},
+        {x:550,y:140},
+        {x:650,y:440}
+    ];
+
+
+
+    //连线
+    ctx.beginPath();
+    for (var i = 0; i < ps.length; i++) {
+        var obj = ps[i];
+        //如果是第一个点，画笔移动到第一个点
+        //后面的点进行连线
+        var x=obj.x+gap;
+        var y=h-obj.y-gap;
+
+        if(i==0){
+            ctx.moveTo(x,y);
+        }else{
+            ctx.lineTo(x,y);
+        }
+    }
+    ctx.stroke();//描边
+
+    //循环画点
+
+    for (var i = 0; i < ps.length; i++) {
+        var obj = ps[i];
+        drawPoint(obj.x,obj.y);
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

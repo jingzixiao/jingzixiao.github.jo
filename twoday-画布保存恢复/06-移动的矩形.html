@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        var cs=document.querySelector('canvas');
+        var ctx=cs.getContext('2d');
+
+
+        var x=10;
+        var y=10;
+
+        var sx=1; //stepX; 步长
+        var sy=1; //stepY;
+
+        var size=30;
+
+
+
+        setInterval(function(){
+//          ctx.clearRect(0,0,cs.width,cs.height);
+            ctx.fillStyle='rgba(255,255,255,0.2)';
+            ctx.fillRect(0,0,cs.width,cs.height);
+
+            x=x+sx;
+            y=y+sy;
+
+            if(y>=cs.height-size||y<=0){
+                sy=-sy;
+            }
+            if(x>cs.width-size||x<=0){
+                sx=-sx;
+            }
+            ctx.strokeRect(x,y,size,size);
+        },10);
+
+    </script>
+</body>
+</html>

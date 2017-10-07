@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Pipe</title>
+</head>
+<body>
+<script src='Pipe.js'></script>
+  <canvas width="800" height="400" style="border:1px solid #ccc;"></canvas>
+  <script>
+    var cs=document.querySelector("canvas");
+    var ctx=cs.getContext("2d");
+    
+    var upImg=new Image();
+    upImg.src='../imgs/pipe2.png';
+
+    var downImg=new Image();
+    downImg.src='../imgs/pipe1.png';
+
+    upImg.onload=function(){
+     
+      var p=new Pipe({
+        ctx:ctx,
+        upImg:upImg,
+        downImg:downImg,
+        index:0
+      });
+       var p1=new Pipe({
+          ctx:ctx,
+         upImg:upImg,
+         downImg:downImg,
+          index:1
+        });
+      var p2=new Pipe({
+        ctx:ctx,
+        upImg:upImg,
+        downImg:downImg,
+        index:2
+      });
+  
+      var p3=new Pipe({
+        ctx:ctx,
+        upImg:upImg,
+        downImg:downImg,
+        index:3
+      });
+  
+      var p4=new Pipe({
+        ctx:ctx,
+        upImg:upImg,
+        downImg:downImg,
+        index:4
+      });
+      setInterval(function(){
+        ctx.clearRect(0,0,cs.width,cs.height);
+        ctx.beginPath();
+        p.render();
+        p1.render();
+        p2.render();
+        p3.render();
+        p4.render();
+        
+      },10)
+      
+    }
+    
+   </script>
+</body>
+</html>
