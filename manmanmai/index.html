@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>慢慢买项目</title>
+  <!--<link rel="stylesheet" href="css/common.css">-->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <header class="clearfix">
+    <div class="left fl">
+      <a href="index.html">
+        <img src="images/header_logo.png" alt="慢慢买">
+      </a>
+    </div>
+    <div class="right fr">
+      <a href="index.html">
+        <img src="images/header_app.png" alt="手机下载">
+      </a>
+    </div>
+  </header>
+  
+  <section class="top">
+    <div class="searchBox clearfix">
+      <div class="right fr">
+        <input type="submit" class="submit" value='搜索'>
+      </div>
+      <div class="left">
+        <input type="search" class="search" placeholder="请输入商品名称">
+      </div>
+    </div>
+    <!--nav-->
+    <nav>
+      <ul class="clearfix" id="indexNav">
+      </ul>
+    </nav>
+    <script type="text/template" id="tpl">
+      {{each result}}
+        <li class="fl w20" data-id={{$value.indexmenuId}}>
+          <a href="{{$value.titlehref}}">
+            {{# $value.img}}
+          </a>
+          <i>{{$value.name}}</i>
+        </li>
+      {{/each}}
+    </script>
+  </section>
+  <!--超值折扣推荐-->
+  <section class="middle">
+    <div class="supper">
+      <a href="moneyctrl.html">
+        <span>超值折扣推荐</span>
+        <i class="fr"></i>
+      </a>
+    </div>
+    <ul id="midd">
+    </ul>
+  </section>
+  <script type="text/template" id="middTpl">
+    {{each result}}
+    <li class="clearfix">
+      <a href="moneyproduct.html?productid={{$value.productId}}">
+        <div class="pic fl">
+          {{#$value.productImgSm}}
+        </div>
+        <div class="right">
+          <p>
+            {{$value.productName}}
+            <i>{{$value.productPinkage}}</i>
+          </p>
+          <div class="bottom clearfix">
+            <span>{{$value.productFrom}}&nbsp; | &nbsp;{{$value.productTime}}</span>
+            <span class="fr">
+               <i></i>
+               {{$value.productComCount}}
+            </span>
+          </div>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+<!--更多优惠信息-->
+  <section class="moreTj">
+    <div class="moreT">
+      <a href="#">更多优惠信息&nbsp;>></a>
+    </div>
+  </section>
+  <section class="bottom">
+    <div class="supper">
+      <a href="moneyctrl.html">
+        <span>品牌排行</span>
+        <i class="fr"></i>
+      </a>
+    </div>
+    <div class="footer">
+      <ul class="clearfix">
+        <li class="fl w30">
+          <a href="#">登录</a>
+        </li>
+        <li class="fl w30">
+          <a href="#">注册</a>
+        </li>
+        <li class="fl w40">
+          <i></i>
+          <a href="#">回到顶部</a>
+        </li>
+      </ul>
+    </div>
+    <div class="foo-bottom">
+      <p class="first">
+        <a href="#">手机APP下载</a>
+        <a href="#">慢慢买手机版</a>
+        <a href="#">--掌上比价平台</a>
+      </p>
+      <p>
+        <a href="#">手机APP下载</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/art-template.js"></script>
+  <script src="js/rem.js"></script>
+  <script src="js/API.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

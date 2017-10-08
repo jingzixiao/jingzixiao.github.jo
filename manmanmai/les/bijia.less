@@ -1,0 +1,261 @@
+@charset "UTF-8";
+@import  "adapter.less";
+@import "base.less";
+//header部分
+header{
+  width: 100%;
+  height: 98rem/@base;
+  background-color: #ff841d;
+  border-bottom:2px solid #f68e36;
+  box-sizing: border-box;
+  padding: 5rem/@base;
+  font-weight: 700;
+  .left{
+    width: 372rem/@base;
+    height: 49rem/@base;
+    margin-left: 20rem/@base;
+    margin-top: 23rem/@base;
+    img{
+      width: 100%;
+    }
+
+  }
+  .right{
+    width: 70rem/@base;
+    height: 70rem/@base;
+    margin-right: 10rem/@base;
+    margin-top: 10rem/@base;;
+    img{
+      width: 100%;
+    }
+  }
+}
+//search部分
+section.top{
+  width: 100%;
+  .searchBox{
+    width: 100%;
+    height: 100rem/@base;
+    background-color: #fff;
+    line-height:100rem/@base ;
+    .right{
+      height:100%;
+      width: 168rem/@base;
+      margin-right: 15rem/@base;
+      .submit{
+        width: 168rem/@base;
+        height: 60rem/@base;
+        border-radius: 30rem/@base;
+        color:#fff;
+        background-color: #f68e36;
+      }
+    }
+    .left{
+      height:100%;
+      margin-right: 230rem/@base;
+      margin-left: 15rem/@base;
+      .search{
+        width: 100%;
+        height:60rem/@base;
+        border:1px solid #ebe7e4;
+        border-radius: 50rem/@base;
+        background-color: #efece9;
+        text-indent: 40rem/@base;
+      }
+    }
+
+  }
+}
+//bijia
+section.middle{
+  ul {
+    height: 70rem/@base;
+    background-color: #f68e36;
+    color:#fff;
+    line-height:70rem/@base ;
+    li{
+      text-indent: 20rem/@base;
+      a{
+        font-size: 30rem/@base;
+        color:#fff;
+      }
+    }
+  }
+
+}
+
+section.product-body{
+  .productDetail{
+    background-color: #fff;
+    img{
+      margin:10rem/@base auto;
+      width: 400rem/@base;
+    }
+   p{
+     width: 100%;
+     margin:0 30rem/@base;
+     font-size: 38rem/@base;
+     font-weight: 400;
+     color:#000;
+     margin-bottom: 10rem/@base;
+   }
+  }
+  .pro_tab{
+    width: 100%;
+    border-top:1px solid #bb4732;
+    border-bottom:1px solid #bb4732;
+    height: 80rem/@base;
+    ul{
+      height: 100%;
+      li{
+        height: 100%;
+        border-right:1px solid #bb4732;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 80rem/@base;
+        background-color: #ffca39;
+        a{
+          color:#fff;
+          font-size: 40rem/@base;
+        }
+      }
+      li:last-child{
+        border-right:none;
+      }
+      li:first-child{
+        background-color: #ffa127;
+      }
+    }
+  }
+}
+//比价列表
+section.bjshop{
+  height: 100rem/@base;
+  line-height:100rem/@base ;
+  //box-sizing: border-box;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  padding:0rem/@base 30rem/@base;
+  .bjnote{
+    height: 100%;
+      table{
+        tbody{
+          tr{
+            .p_pic{
+              vertical-align: middle;
+              width: 35rem/@base;
+            }
+            td{
+              text-align: center;
+               a{
+                 color:#000;
+               }
+            }
+
+          }
+        }
+      }
+  }
+
+}
+//网友评价
+section.evaluate{
+  //height: 530rem/@base;
+  h3{
+    height: 70rem/@base;
+    background-color: #ccc;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    font-size: 35rem/@base;
+    text-align: center;
+    line-height: 70rem/@base;
+    color:#000;
+  }
+  ul{
+    padding:20rem/@base 0;
+    background-color: #fff;
+    li{
+      margin:20rem/@base 30rem/@base;
+      border-bottom: 1px solid #ccc;
+      .info{
+        font-size: 32rem/@base;
+        height: 100rem/@base;
+        margin-bottom: 10rem/@base;
+        span:nth-child(2){
+          text-align: right;
+        }
+      }
+      .text{
+        font-size: 35rem/@base;
+        margin-bottom: 40rem/@base;
+      }
+    }
+  }
+}
+
+
+section.moreTj{
+  padding:25rem/@base;
+  .moreT{
+    width: 100%;
+    height:60rem/@base;
+    background-color: #e9e5e2;
+    border:1px solid #ccc;
+    border-radius: 10rem/@base;
+    text-align: center;
+    line-height: 60rem/@base;
+    //margin:25rem/@base;
+    a{
+      color:#000;
+    }
+  }
+
+}
+//bijia_bottom
+section.bijia_bottom{
+  .footer{
+    margin-top: 50rem/@base;
+    ul{
+      width: 100%;
+      height:80rem/@base;
+      line-height:80rem/@base ;
+      border-top:1px solid #ccc;
+      border-bottom:1px solid #ccc;
+      text-align: center;
+      font-size: 35rem/@base;
+      li{
+        width: 30%;
+        height:100%;
+        border-right:1px solid #ccc;
+        box-sizing: border-box;
+        a{
+          color:#000;
+        }
+        i{
+          display: inline-block;
+          width:25rem/@base;
+          height:30rem/@base;
+          background-image: url("../images/top.jpg");
+          background-size:100% 100%;
+        }
+      }
+      :last-child{
+        width: 40%;
+        border:none;
+      }
+    }
+  }
+  .foo-bottom{
+    text-align: center;
+    height: 125rem/@base;
+    margin-top: 50rem/@base;
+    .first{
+      :first-child{
+        color:red;
+      }
+    }
+    a{
+      color:#000;
+    }
+  }
+}

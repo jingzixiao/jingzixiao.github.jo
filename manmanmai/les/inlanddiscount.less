@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import  "adapter.less";
+@import "base.less";
+
+//header部分
+header{
+  width: 100%;
+  height: 98rem/@base;
+  background-color: #ff841d;
+  border-bottom:2px solid #f68e36;
+  box-sizing: border-box;
+  padding: 5rem/@base;
+  font-weight: 700;
+  .left{
+    margin-left: 20rem/@base;
+    margin-top: 23rem/@base;
+    img{
+      width: 48rem/@base;
+      height:48rem/@base;
+    }
+  }
+  .center{
+    height:100%;
+    line-height: 98rem/@base;
+    text-align: center;
+    margin-left:80rem/@base ;
+    margin-right: 100rem/@base;
+    font-size: 40rem/@base;
+    color:#fff;
+    font-weight: 700;
+  }
+  .right{
+    width: 70rem/@base;
+    height: 70rem/@base;
+    margin-right: 10rem/@base;
+    margin-top: 10rem/@base;;
+    img{
+      width: 100%;
+    }
+  }
+}
+//inland_body
+section.inland_body{
+  ul{
+    li{
+      a{
+        display: inline-block;
+        color:#000;
+        height:580rem/@base;
+        padding:20rem/@base 40rem/@base;
+        box-sizing: border-box;
+        background-color: #fff;
+        .pic{
+          padding:15rem/@base;
+          img{
+            width: 100%;
+          }
+        }
+      }
+
+      .bottom{
+        height:200rem/@base ;
+        .price{
+          color:red;
+          margin-top:10rem/@base;
+        }
+        .productName{
+          height: 80rem/@base;
+          overflow: hidden;
+        }
+        .mall{
+          width: 100%;
+          height:45rem/@base;
+          margin-top: 10rem/@base;
+          font-size: 24rem/@base;
+          line-height: 45rem/@base;
+        }
+      }
+    }
+  }
+}
+
+
+section.bottom{
+  .footer{
+    margin-top: 50rem/@base;
+    ul{
+      width: 100%;
+      height:80rem/@base;
+      line-height:80rem/@base ;
+      border-top:1px solid #ccc;
+      border-bottom:1px solid #ccc;
+      text-align: center;
+      font-size: 35rem/@base;
+      li{
+        width: 30%;
+        height:100%;
+        border-right:1px solid #ccc;
+        box-sizing: border-box;
+        a{
+          color:#000;
+        }
+        i{
+          display: inline-block;
+          width:25rem/@base;
+          height:30rem/@base;
+          background-image: url("../images/top.jpg");
+          background-size:100% 100%;
+        }
+      }
+      :last-child{
+        width: 40%;
+        border:none;
+      }
+    }
+  }
+  .foo-bottom{
+    text-align: center;
+    height: 125rem/@base;
+    margin-top: 50rem/@base;
+    .first{
+      :first-child{
+        color:red;
+      }
+    }
+    a{
+      color:#000;
+    }
+  }
+}

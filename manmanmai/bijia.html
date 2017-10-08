@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>比价-bijia</title>
+  <link rel="stylesheet" href="css/bijia.css">
+</head>
+<body>
+<!--header部分-->
+<header class="clearfix">
+  <div class="left fl">
+    <a href="index.html">
+      <img src="images/header_logo.png" alt="慢慢买">
+    </a>
+  </div>
+  <div class="right fr">
+    <a href="index.html">
+      <img src="images/header_app.png" alt="手机下载">
+    </a>
+  </div>
+</header>
+<!--search-->
+<section class="top">
+  <div class="searchBox clearfix">
+    <div class="right fr">
+      <input type="submit" class="submit" value='搜索'>
+    </div>
+    <div class="left">
+      <input type="search" class="search" placeholder="请输入你想比价的商品">
+    </div>
+  </div>
+</section>
+  <!--面包屑-->
+<section class="middle">
+    <ul class="clearfix">
+      <li class="fl">
+        <a href="index.html">首页&nbsp;></a>
+      </li>
+      <li class="fl">
+        <a href="productlist.html">电视&nbsp;></a>
+      </li>
+      <li class="fl">
+        <a href="javascript:;">乐视</a>
+      </li>
+    </ul>
+  </section>
+<!--product-body-->
+<section class="product-body">
+  <div class="productDetail">
+  </div>
+  <div class="pro_tab">
+    <ul class="clearfix">
+      <li class='w33 fl current'>
+      <a href="javascript:;">比价购买</a>
+      </li>
+      <li class='w33 fl'>
+        <a href="javascript:;">产品参数</a>
+      </li>
+      <li class='w33 fl'>
+        <a href="javascript:;">优选评价</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<script type="text/template" id="productDetailTpl">
+  {{each result}}
+    {{#$value.productImg}}
+    <p class="title">{{$value.productName}}</p>
+  {{/each}}
+</script>
+<!-- 比价列表 -->
+<section class="bjshop">
+  <div class="bjnote">
+  </div>
+</section>
+<section class="evaluate">
+  <h3>网友评价</h3>
+  <ul id="evaluate">
+  </ul>
+</section>
+<script type="text/template" id="evaluateTpl">
+    {{each result as v i }}
+      <li class="item">
+        <div class="info clearfix">
+          <span class='w50 fl'>{{v.comName}}</span>
+          <span class='w50 fr'>{{v.comTime}}</span>
+          <span class="fr">{{v.comFrom}}</span>
+        </div>
+        <div class="text">{{v.comContent}}</div>
+      </li>
+    {{/each}}
+</script>
+
+
+
+
+
+
+<!--更多优惠信息-->
+<section class="moreTj">
+  <div class="moreT">
+    <a href="javascript:;">查看更多评价>></a>
+  </div>
+</section>
+<!--bijia_bottom-->
+<section class="bijia_bottom">
+  <div class="footer">
+    <ul class="clearfix">
+      <li class="fl w30">
+        <a href="#">登录</a>
+      </li>
+      <li class="fl w30">
+        <a href="#">注册</a>
+      </li>
+      <li class="fl w40">
+        <i></i>
+        <a href="#">回到顶部</a>
+      </li>
+    </ul>
+  </div>
+  <div class="foo-bottom">
+    <p class="first">
+      <a href="#">手机APP下载</a>
+      <a href="#">慢慢买手机版</a>
+      <a href="#">--掌上比价平台</a>
+    </p>
+    <p>
+      <a href="#">手机APP下载</a>
+    </p>
+  </div>
+</section>
+
+<script src='js/jquery-1.12.4.js'></script>
+<script src="js/art-template.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/API.js"></script>
+<script src='js/bijia.js'></script>
+</body>
+</html>

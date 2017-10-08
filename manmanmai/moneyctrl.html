@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>省钱控-moneyctrl</title>
+  <link rel="stylesheet" href="css/moneyctrl.css">
+</head>
+<body>
+  <header class="clearfix">
+  <div class="left fl">
+    <a href="index.html">
+      <img src="images/icback.svg" alt="">
+    </a>
+  </div>
+  <div class="right fr">
+      <a href="index.html">
+        <img src="images/header_app.png" alt="手机下载">
+      </a>
+    </div>
+  <div class="center">
+    <h2>省钱控 - 最新优惠</h2>
+  </div>
+  
+</header>
+  <section class="mon_body">
+    <ul id="mon_main">
+    </ul>
+  </section>
+  <script type="text/template" id="monTpl">
+    {{each result}}
+      <li class="clearfix">
+        <a href="moneyproduct.html?productid={{$value.productId}}">
+          <div class="pic fl">
+            {{#$value.productImgSm}}
+          </div>
+          <div class="right">
+            <p>
+              {{$value.productName}}
+              <i>{{$value.productPinkage}}</i>
+            </p>
+            <div class="bottom clearfix">
+              <span>{{$value.productFrom}}&nbsp; | &nbsp;{{$value.productTime}}</span>
+              <span class="fr">
+               <i></i>
+               {{$value.productComCount}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </li>
+    {{/each}}
+  </script>
+  
+  <section class="mon_nav">
+    <div class="prev fl" id="prev">
+      <a href="javascript:;">上一页</a>
+    </div>
+    <div class="next fr"  id="next">
+      <a href="javascript:;">下一页</a>
+    </div>
+    <div class="items">
+      <select name="" id="">
+      </select>
+    </div>
+    
+  </section>
+
+  <section class="bottom">
+    <div class="footer">
+      <ul class="clearfix">
+        <li class="fl w30">
+          <a href="#">登录</a>
+        </li>
+        <li class="fl w30">
+          <a href="#">注册</a>
+        </li>
+        <li class="fl w40">
+          <i></i>
+          <a href="#">回到顶部</a>
+        </li>
+      </ul>
+    </div>
+    <div class="foo-bottom">
+      <p class="first">
+        <a href="#">手机APP下载</a>
+        <a href="#">慢慢买手机版</a>
+        <a href="#">--掌上比价平台</a>
+      </p>
+      <p>
+        <a href="#">手机APP下载</a>
+      </p>
+    </div>
+  </section>
+  
+  
+  
+  <script src='js/jquery-1.12.4.js'></script>
+  <script src="js/art-template.js"></script>
+  <script src="js/rem.js"></script>
+  <script src="js/API.js"></script>
+  <script src="js/moneyctrl.js"></script>
+</body>
+</html>

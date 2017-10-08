@@ -1,0 +1,225 @@
+@charset "UTF-8";
+@import  "adapter.less";
+@import "base.less";
+
+//header部分
+header{
+  width: 100%;
+  height: 98rem/@base;
+  background-color: #ff841d;
+  border-bottom:2px solid #f68e36;
+  box-sizing: border-box;
+  padding: 5rem/@base;
+  font-weight: 700;
+  .left{
+    margin-left: 20rem/@base;
+    margin-top: 23rem/@base;
+    img{
+      width: 48rem/@base;
+      height:48rem/@base;
+    }
+  }
+  .center{
+    height:100%;
+    line-height: 98rem/@base;
+    text-align: center;
+    margin-left:80rem/@base ;
+    margin-right: 100rem/@base;
+    font-size: 40rem/@base;
+    color:#fff;
+    font-weight: 700;
+  }
+  .right{
+    width: 70rem/@base;
+    height: 70rem/@base;
+    margin-right: 10rem/@base;
+    margin-top: 10rem/@base;;
+    img{
+      width: 100%;
+    }
+  }
+}
+//nav
+section.nav{
+  height: 75rem/@base;
+  line-height: 75rem/@base;
+  position: relative;
+  background-color: #fff;
+  .search-icon{
+    width: 80rem/@base;
+    height: 100%;
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    img{
+      width: 70%;
+      margin:10rem/@base auto;
+    }
+  }
+  .wrap{
+    background-color: #fff;
+    height: 100%;
+    margin-right:80rem/@base;
+    border-bottom: 1px solid #ccc;
+    ul{
+      li{
+        text-indent: 70rem/@base;
+        font-size: 35rem/@base;
+        color:#000;
+        position: relative;
+        i{
+          border:10rem/@base solid #000;
+          border-color: transparent transparent #000 transparent;
+          position: absolute;
+          top:25rem/@base;
+          right:50rem/@base;
+        }
+      }
+      li:nth-child(3){
+        text-indent: 35rem/@base;
+        i{
+          right:20rem/@base;
+        }
+      }
+    }
+  }
+  .popsort{
+    display: none;
+    li{
+      height: 80rem/@base;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      font-size: 35rem/@base;
+      text-indent: 30rem/@base;
+      position: relative;
+      a{
+        color:#000;
+
+      }
+    }
+  }
+}
+.on{
+  &:after{
+    content:"";
+    display: block;
+    width:48rem/@base;
+    height:48rem/@base;
+    background: url("../images/on.png") no-repeat right center;
+    position: absolute;
+    right:20rem/@base;
+    top:50%;
+    transform: translateY(-50%);
+    background-size:100%;
+    margin-right: 10rem/@base;
+  }
+}
+//gsproduct_body
+section.gsproduct_body{
+  ul{
+    margin:20rem/@base 10rem/@base;
+    li{
+      padding:10rem/@base 10rem/@base;
+      box-sizing: border-box;
+      a{
+        width: 100%;
+        display: inline-block;
+        color:#000;
+        box-sizing: border-box;
+        background-color: #fff;
+        .pic{
+
+          img{
+            width: 370rem/@base;
+            height: 370rem/@base;
+          }
+        }
+        .productName{
+          .title{
+            font-size: 30rem/@base;
+            height: 50rem/@base;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+          }
+        }
+        .bottom{
+          height:80rem/@base ;
+          .price{
+            width: 50%;
+            color:red;
+            margin-top:10rem/@base;
+            margin-left:10rem/@base;
+            font-size: 40rem/@base;
+          }
+          .btn{
+            margin-top: 10rem/@base;
+            font-size: 30rem/@base;
+            text-align: center;
+            margin-right: 10rem/@base;
+            width: 2.8rem;
+            height: 1.08rem;
+            background-color: #ff841d;
+            border-radius: 0.2rem;
+            line-height: 1.08rem;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+section.bottom{
+  .footer{
+    margin-top: 50rem/@base;
+    ul{
+      width: 100%;
+      height:80rem/@base;
+      line-height:80rem/@base ;
+      border-top:1px solid #ccc;
+      border-bottom:1px solid #ccc;
+      text-align: center;
+      font-size: 35rem/@base;
+      li{
+        width: 30%;
+        height:100%;
+        border-right:1px solid #ccc;
+        box-sizing: border-box;
+        a{
+          color:#000;
+        }
+        i{
+          display: inline-block;
+          width:25rem/@base;
+          height:30rem/@base;
+          background-image: url("../images/top.jpg");
+          background-size:100% 100%;
+        }
+      }
+      :last-child{
+        width: 40%;
+        border:none;
+      }
+    }
+  }
+  .foo-bottom{
+    text-align: center;
+    height: 125rem/@base;
+    margin-top: 50rem/@base;
+    .first{
+      :first-child{
+        color:red;
+      }
+    }
+    a{
+      color:#000;
+    }
+  }
+}

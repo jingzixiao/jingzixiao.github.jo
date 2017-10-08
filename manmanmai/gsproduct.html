@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>凑单品-gsproduct</title>
+  <link rel="stylesheet" href="css/gsproduct.css">
+</head>
+<body>
+  <header class="clearfix">
+  <div class="left fl">
+    <a href="index.html">
+      <img src="images/icback.svg" alt="">
+    </a>
+  </div>
+  <div class="right fr">
+      <a href="index.html">
+        <img src="images/header_app.png" alt="手机下载">
+      </a>
+    </div>
+  <div class="center">
+    <h2>凑单品</h2>
+  </div>
+  
+</header>
+  <section class="nav">
+    <div class="search-icon">
+      <img src="images/search-icon.png" alt="">
+    </div>
+    <div class="wrap">
+      <ul class="clearfix title" id="ulWrap">
+        <li class="w33 fl shop_btn">
+          京东
+          <i></i>
+        </li>
+        <li class="w33 fl area_btn">
+          华北
+          <i></i>
+        </li>
+        <li class="w33 fl all">
+          全部价格
+          <i></i>
+        </li>
+      </ul>
+    </div>
+    <div class="popsort popbox" id="shop">
+    </div>
+    <div class="popsort popbox" id="area">
+    </div>
+    <div class="popsort popbox" id="allBox">
+      <li class="on">
+        <a href="javascript:;">全部价格</a>
+      </li>
+    </div>
+  </section>
+  <script type='text/template' id="shopTpl">
+    {{each result as v i}}
+      <li data-shopid="{{v.shopId}}">
+        <a href="javascript:;">{{v.shopName}}</a>
+      </li>
+    {{/each}}
+  </script>
+  <script type='text/template' id="areaTpl">
+    {{each result as v i}}
+      <li data-areaid="{{v.areaId}}">
+        <a href="javascript:;">{{v.areaName}}</a>
+      </li>
+    {{/each}}
+  </script>
+  <section class="gsproduct_body">
+    <ul id="gsproduct_main" class="clearfix">
+    </ul>
+  </section>
+  <script type="text/template" id="gsproductTpl">
+    {{each result as v i}}
+        <li class="w50 fl data-id={{v.productId}}">
+          <a href="discount.html?productid={{v.productId}}&areaId={{v.areaId}}">
+            <div class="pic">
+              <img src="{{#v.productImg}}" alt="">
+            </div>
+            <div class="productName">
+              <p class='title'>{{v.productName}}</p>
+            </div>
+            <div class="bottom clearfix">
+              <p class="price fl">{{v.productPrice}}</p>
+              <div class="btn fr">去凑单</div>
+            </div>
+          </a>
+        </li>
+    {{/each}}
+  </script>
+  
+
+  <section class="bottom">
+    <div class="footer">
+      <ul class="clearfix">
+        <li class="fl w30">
+          <a href="#">登录</a>
+        </li>
+        <li class="fl w30">
+          <a href="#">注册</a>
+        </li>
+        <li class="fl w40">
+          <i></i>
+          <a href="#">回到顶部</a>
+        </li>
+      </ul>
+    </div>
+    <div class="foo-bottom">
+      <p class="first">
+        <a href="#">手机APP下载</a>
+        <a href="#">慢慢买手机版</a>
+        <a href="#">--掌上比价平台</a>
+      </p>
+      <p>
+        <a href="#">手机APP下载</a>
+      </p>
+    </div>
+  </section>
+  
+  <script src='js/jquery-1.12.4.js'></script>
+  <script src="js/art-template.js"></script>
+  <script src="js/rem.js"></script>
+  <script src="js/API.js"></script>
+  <script src="js/gsproduct.js"></script>
+</body>
+</html>
